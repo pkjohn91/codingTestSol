@@ -1,13 +1,6 @@
-import java.util.StringTokenizer;
-
 class Solution {
     public String[] solution(String my_string) {
-        StringTokenizer st = new StringTokenizer(my_string);
-        String[] answer = new String[st.countTokens()];
-        int idx = 0;
-        while(st.hasMoreTokens()) {
-            answer[idx++] = st.nextToken();
-        }
+        String[] answer = my_string.trim().split("\\s+");
         return answer;
     }
 }
