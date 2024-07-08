@@ -4,7 +4,7 @@ class Solution {
         int denom = denom1 * denom2;
         int max = -1;
         // 최대공약수 찾기
-        for(int i = 1; i <= denom; i++) {
+        for(int i = 1; i <= numer && i <= denom; i++) {
             if(numer % i == 0 && denom % i == 0) {
                 max = i;
             }
