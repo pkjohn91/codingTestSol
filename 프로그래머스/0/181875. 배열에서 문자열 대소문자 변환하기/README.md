@@ -75,4 +75,8 @@
 <p>※ 2023년 05월 15일 제한사항이 수정되었습니다.</p>
 
 
+### 내 문제 풀이
+
+<p>toUpperCase()와 toLowerCase()까진 생각했으나, 배열로 비교하면 코드가 너무 길어질 것 같아서, 결국 서칭을 했다.. 서칭 중엔 boolean 타입 반환인 isUpperCase()를 사용하여 한 글자씩 비교하여 바꾸었다.</p>
+
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
