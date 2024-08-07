@@ -68,5 +68,8 @@
 <li>"onefourzerosixseven"를 숫자로 바꾼 14067를 return합니다.</li>
 </ul>
 
+### 내 문제 풀이
+
+<p>처음에는 배열 a를 만들어 zero부터 nine까지 초기화 시켜줬다. 그다음은 startsWith(), indexOf(), subString()으로 사용하려고 했지만 도저히 아이디어가 떠오르질 않았다. 서칭 중에 맘에 드는 for문에 replaceAll() 함수를 사용하여 배열 안에 있는 문자열을 숫자로 바꿔주고 리턴 타입이 long타입이므로 타입변환 후 반환했다.</p>
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
