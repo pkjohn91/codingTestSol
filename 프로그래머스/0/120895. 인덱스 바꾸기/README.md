@@ -74,5 +74,8 @@
 <li>"I love you"의 3번째 인덱스 "o"와 " "(공백)을 바꾸면 "I l veoyou"입니다.</li>
 </ul>
 
+### 내 문제 풀이
+
+<p>replace()를 이용하여 코드를 작성했지만 결국 아이디어가 떠오르지 않았다. 서칭 중에선 String[] 배열에 담아 인덱스의 값을 바꿔준 후 answer 변수에 출력했다.</p>
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
