@@ -1,2 +1,2 @@
-# BaekjoonSol
-This is an auto push repository for Baekjoon Online Judge created with [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub).
+# 코딩 테스트 레포지토리
+- 웹사이트 코딩테스트에서 풀이한 문제들입니다.
