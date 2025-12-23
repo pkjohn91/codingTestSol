@@ -1,7 +1,7 @@
 # 문제를 풀면서 배운 Java String 클래스 메서드들 #
 
 바로가기
-- [String.join()](#String.join())
+- [String.join()](#-String.join())
 
 
 ---
