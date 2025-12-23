@@ -1,7 +1,9 @@
-import java.util.Arrays;
-
 class Solution {
     public int[] solution(int[] num_list, int n) {
-        return Arrays.copyOfRange(num_list, 0, n);
+        int[] result = new int[n];
+        for (int i = 0; i < result.length; i++) {
+            result[i] = num_list[i];
+        }
+        return result;
     }
 }
