@@ -1,6 +1,19 @@
 class Solution {
     public int solution(String myString, String pat) {
-        String s = myString.replace('A','X').replace('B','A').replace('X','B');
-        return s.contains(pat) ? 1 : 0;
+        int answer = 0;
+        char[] replaceCh = myString.toCharArray();
+        
+        // 치환
+        for (int i = 0; i < replaceCh.length; i++) {
+            if (replaceCh[i] == 'A') {
+                replaceCh[i] = 'B';
+            } else {
+                replaceCh[i] = 'A';
+            }
+        }
+        
+        String str = new String(replaceCh);
+        
+        return str.contains(pat) ? 1 : 0;
     }
 }
