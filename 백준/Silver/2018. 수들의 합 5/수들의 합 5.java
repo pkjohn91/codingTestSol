@@ -1,28 +1,27 @@
 import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        
+
         int N = sc.nextInt();
+        sc.close();
+
         int cnt = 1;
+        int start = 1;
+        int end = 1;
         int sum = 1;
-        int startidx = 1;
-        int endidx = 1;
-        
-        while(endidx != N) {
-            if(sum == N) {
+        while (end != N) {
+            if (sum == N) {
                 cnt++;
-                endidx++;
-                sum = sum + endidx;
-            }
-            else if(sum > N) {
-                sum = sum - startidx;
-                startidx++;
-            }
-            // sum < N
-            else {
-                endidx++;
-                sum = sum + endidx;
+                end++;
+                sum += end;
+            } else if (sum > N) {
+                sum -= start;
+                start++;
+            } else {
+                end++;
+                sum += end;
             }
         }
         System.out.println(cnt);
