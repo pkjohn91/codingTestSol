@@ -1,88 +1,90 @@
-import java.io.IOException;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
-import java.util.Arrays;
+
 
 public class Main {
-    static int[] myArr = new int[4]; // 현재 상태 배열
-    static int[] chkArr = new int[4]; // 체크 배열
-    static int chksecret = 0; // 체크 만족 카운트
-    
-    public static void main(String[] args) throws IOException{
+    static int validateNum;
+    static int[] arr;
+    static int[] checkArr;
+
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int result = 0; // 반환값
-        int s = Integer.parseInt(st.nextToken()); // 입력문자열 길이
-        int p = Integer.parseInt(st.nextToken()); // 부분문자열 길이     
-        // 입력 문자열
-        char[] a = new char[s]; // 입력 문자열
-        a = br.readLine().toCharArray();
-        
-        // 체킹해야할 숫자 배열 받기
-        st = new StringTokenizer(br.readLine());        
-        for(int i = 0; i < 4; i++) {
-            chkArr[i] = Integer.parseInt(st.nextToken());
-            if(chkArr[i] == 0) {
-                chksecret++;
-            }
-        }        
-        // 처음 부분문자열 체크
-        for(int i = 0; i < p; i++) {
-            Add(a[i]);
+        int S = Integer.parseInt(st.nextToken());
+        int P = Integer.parseInt(st.nextToken());
+        char[] pwArr = br.readLine().toCharArray();
+        arr = new int[4];
+        checkArr = new int[4]; // 확인해야 할 A, C, G, T 카운트 배열
+        st = new StringTokenizer(br.readLine());
+        for (int i = 0; i < 4; i++) {
+            arr[i] = Integer.parseInt(st.nextToken());
+            if (arr[i] == 0) validateNum++;
         }
-        // 처음 돌렸는데 chksecret이 4라면(=현재 상태를 모두 만족한다면)
-        if(chksecret == 4)result++;
-        // 슬라이딩윈도우
-        for(int i = p; i < s; i++) {
-            int j = i - p; // 슬라이딩윈도우 앞부분
-            Add(a[i]);
-            Remove(a[j]);
-            if(chksecret == 4) result++;
+
+        // 초기 P 부분
+        int count = 0;
+        for (int i = 0; i < P; i++) {
+            add(pwArr[i]);
         }
-        System.out.println(result);
+        if (validateNum == 4) {
+            count++;
+        }
+
+        // 슬라이딩 윈도우
+        for (int i = P; i < S; i++) {
+            int j = i - P;
+            add(pwArr[i]);
+            remove(pwArr[j]);
+            if (validateNum == 4) count++;
+        }
+
+        System.out.println(count);
         br.close();
     }
-    
-    private static void Add(char c) {
-        switch(c) {
-            case 'A':
-                myArr[0]++;
-                if(myArr[0] == chkArr[0]) chksecret++;
+
+    private static void add(char c) {
+        switch (c) {
+            case 'A' :
+                checkArr[0]++;
+                validateNum += (arr[0] == checkArr[0]) ? 1 : 0;
                 break;
-            case 'C':
-                myArr[1]++;
-                if(myArr[1] == chkArr[1]) chksecret++;
+            case 'C' :
+                checkArr[1]++;
+                validateNum += (arr[1] == checkArr[1]) ? 1 : 0;
                 break;
-            case 'G':
-                myArr[2]++;
-                if(myArr[2] == chkArr[2]) chksecret++;
+            case 'G' :
+                checkArr[2]++;
+                validateNum += (arr[2] == checkArr[2]) ? 1 : 0;
                 break;
-            case 'T':
-                myArr[3]++;
-                if(myArr[3] == chkArr[3]) chksecret++;
+            case 'T' :
+                checkArr[3]++;
+                validateNum += (arr[3] == checkArr[3]) ? 1 : 0;
                 break;
+            default: break;
         }
     }
     
-    private static void Remove(char c) {
-        switch(c) {
-            case 'A':
-                if(myArr[0] == chkArr[0]) chksecret--;
-                myArr[0]--;
+    private static void remove(char c) {
+        switch (c) {
+            case 'A' :
+                validateNum += (arr[0] == checkArr[0]) ? -1 : 0;
+                checkArr[0]--;
                 break;
-            case 'C':
-                if(myArr[1] == chkArr[1]) chksecret--;
-                myArr[1]--;
+            case 'C' :
+                validateNum += (arr[1] == checkArr[1]) ? -1 : 0;
+                checkArr[1]--;
                 break;
-            case 'G':
-                if(myArr[2] == chkArr[2]) chksecret--;
-                myArr[2]--;
+            case 'G' :
+                validateNum += (arr[2] == checkArr[2]) ? -1 : 0;
+                checkArr[2]--;
                 break;
-            case 'T':
-                if(myArr[3] == chkArr[3]) chksecret--;
-                myArr[3]--;
+            case 'T' :
+                validateNum += (arr[3] == checkArr[3]) ? -1 : 0;
+                checkArr[3]--;
                 break;
+            default: break;
         }
     }
 }
